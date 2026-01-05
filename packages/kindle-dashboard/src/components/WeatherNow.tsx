@@ -9,7 +9,9 @@ import {formatTime} from "../utils/util.ts";
 export function WeatherNow({now}: { now: INow }) {
 	// 从 URL 中获取城市名称
 	const params = new URLSearchParams(location.search);
-	const cityName = params.get('city') || '杭州市';
+    console.log(params);
+	const cityName = params.get('city') || '南京市';
+    console.log(now);
 
 	return (
 		<header className="min-h-0 flex-[3] flex border-b-4 border-b-black"
@@ -21,7 +23,7 @@ export function WeatherNow({now}: { now: INow }) {
 
 				{/* 当前时间 */}
 				<p className="text-sm flex-none">
-					<span>{formatTime()}</span> / <span>{formatTime(new Date(now?.obsTime))}</span>
+					<span>当前时间: {formatTime()}</span> / <span>天气更新时间: {formatTime(new Date(now?.obsTime))}</span>
 				</p>
 			</div>
 

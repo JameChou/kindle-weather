@@ -12,7 +12,7 @@ export function FutureWeatherCard({hourly}: { hourly: IHourlyForecast }) {
 			      className="text-xl">{formatTime(new Date(hourly.fxTime))}</time>
 
 			{/* 天气图标 */}
-			<i className={`qi-${hourly.icon} text-[80px]`} aria-label="天气图标"/>
+			<i className={`qi-${hourly.icon} text-[120px]`} aria-label="天气图标"/>
 
 			{/* 温度信息 */}
 			<p className="font-bold text-4xl font-cabin-sketch ">

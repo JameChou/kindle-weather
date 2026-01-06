@@ -11,7 +11,7 @@ async function captureScreenshot(url, filename) {
 	const page = await browser.newPage();
 
 	// 设置视口大小
-	await page.setViewport({width: 600, height: 800});
+	await page.setViewport({width: 1236, height: 1648});
 	// 旋转90度
 	await page.evaluate(() => {
 		document.body.style.transform = 'rotate(90deg)';
@@ -19,8 +19,9 @@ async function captureScreenshot(url, filename) {
 
 
 	// 打开网页并截屏
-	await page.goto(url);
-	await page.waitForTimeout(1500)
+	await page.goto(url, {
+        waitUntil: 'networkidle2',
+    });
 	await page.screenshot({path: filename});
 
 	await browser.close();
@@ -35,7 +36,7 @@ async function convertImage(filename) {
 		const args = [
 			filename,
 			'-gravity', 'center',
-			'-extent', '600x800',
+			// '-extent', '1236*1648',
 			'-colorspace', 'gray',
 			'-depth', '8',
 			filename

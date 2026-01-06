@@ -26,7 +26,7 @@ router.get('/screenshot', async (ctx) => {
 
 	try {
 		// 拼接 URL
-		const targetUrl = `${TARGET_URL}?${queryString}`;
+		const targetUrl = ctx.request.query.key == null ? `${TARGET_URL}` : `${TARGET_URL}?${queryString}`;
 		// 截图并保存
 		await captureScreenshot(targetUrl, SCREENSHOT_PATH);
 
@@ -50,7 +50,7 @@ router.get('/screenshot', async (ctx) => {
 // 代理 /api/weather/now 到外部 API
 app.use(
 	proxy('/api/weather/now', {
-		target: 'https://devapi.qweather.com/v7/weather/now',
+		target: 'https://mq6e4ewth8.re.qweatherapi.com/v7/weather/now',
 		changeOrigin: true,
 		rewrite: path => path.replace(/^\/api\/weather\/now/, ''),
 		logs: true,
@@ -60,7 +60,7 @@ app.use(
 // 代理 /api/weather/24h 到外部 API
 app.use(
 	proxy('/api/weather/24h', {
-		target: 'https://devapi.qweather.com/v7/weather/24h',
+		target: 'https://mq6e4ewth8.re.qweatherapi.com/v7/weather/24h',
 		changeOrigin: true,
 		rewrite: path => path.replace(/^\/api\/weather\/24h/, ''),
 		logs: true,
@@ -83,7 +83,7 @@ router.get('/api/today', async (ctx) => {
 		try {
 			// 发起网络请求获取数据
 			const response = await fetch(
-				`https://devapi.qweather.com//v7/weather/3d?location=${location}&key=${key}&lang=zh`
+				`https://mq6e4ewth8.re.qweatherapi.com/v7/weather/3d?location=${location}&key=${key}&lang=zh`
 			);
 
 			if (!response.ok) {

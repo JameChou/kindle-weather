@@ -41,13 +41,13 @@ function App() {
 
 	return (
 		<main
-			className="flex flex-col font-lxgw-wenkai overflow-hidden rotate-90 origin-bottom-left w-[100vh] h-[100vw] absolute -top-[100vw] lg:w-screen lg:h-screen lg:rotate-0 lg:relative lg:top-0">
+			className="flex flex-col font-lxgw-wenkai overflow-hidden rotate-90 origin-bottom-left w-[100vh] h-[100vw] absolute -top-[100vw]">
 			{/* 当前天气信息 */}
 			<WeatherNow now={now}/>
 
 			{/* 未来天气预报区域 */}
 			<section
-				className="flex-[3] lg:flex-[2] min-h-0 grid grid-cols-5 border-b border-b-black">
+				className="flex-[3] lg:flex-[1] min-h-0 grid grid-cols-5 border-b border-b-black">
 				{
 					future.map((hourly, index) => {
 						return <FutureWeatherCard key={index} hourly={hourly}/>

@@ -1,0 +1,19 @@
+
+{
+  "items": [
+    {
+      "name": "Screensaver",
+      "priority": 0,
+      "items": [
+        {
+          "name": "Check",
+          "action": "/mnt/us/extensions/kind-bash/check.sh"
+        },
+        {
+          "name": "Fetch",
+          "action": "/mnt/us/extensions/kind-bash/sync_screensaver_png.sh"
+        }
+      ]
+     }
+  ]
+}

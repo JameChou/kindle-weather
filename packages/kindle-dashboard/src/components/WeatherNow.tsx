@@ -10,7 +10,7 @@ import {formatLunar, toLunar} from "lunar";
 export function WeatherNow({now}: { now: INow }) {
 	// 从 URL 中获取城市名称
 	const params = new URLSearchParams(location.search);
-	const cityName = params.get('city') || '南京市';
+	const cityName = params.get('city') || '金陵';
     const {lunar} = toLunar(new Date());
     const lunarDateStr = formatLunar(lunar)
 
@@ -42,7 +42,7 @@ export function WeatherNow({now}: { now: INow }) {
 
 			{/* 右侧天气信息 */}
 			<div className="flex flex-col p-20 ml-auto items-end justify-between">
-				<h1 className="text-5xl" aria-label="城市名称">{cityName}</h1>
+				<h1 className="text-5xl" aria-label="城市名称">{now?.text}</h1>
 
 				{/* 温度显示 */}
 				<p className="text-[280px] font-bold font-cabin-sketch">
@@ -50,7 +50,7 @@ export function WeatherNow({now}: { now: INow }) {
 				</p>
 
 				{/* 天气描述 */}
-				<p className="text-3xl">{now?.text}</p>
+                <p className="text-3xl">{cityName}</p>
 			</div>
 		</header>
 	);

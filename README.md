@@ -4,21 +4,11 @@
 
 ## 介绍
 
-这是一个用 Kindle 墨水瓶展示展示天气的应用。
+这是一个用 Kindle 墨水屏展示展示天气的应用。
 
-![screenshot](screenshot/screenshot.jpg)
+![screenshot](screenshot/screenshot.png)
 
-![screenshot_kindle](screenshot/screenshot_kindle.png)
-
-在线预览: [https://kindle.mofada.cn?key=api_key&location=location&city=city](https://kindle.mofada.cn?key=api_key&location=location&city=city)
-
-在线截图: [https://kindle.mofada.cn/screenshot?key=api_key&location=location&city=city](https://kindle.mofada.cn/screenshot?key=api_key&location=location&city=city)
-
-| 参数       | 说明                                                                                                              |
-|----------|-----------------------------------------------------------------------------------------------------------------|
-| api_key  | 和风天气的 [api_key](https://dev.qweather.com/docs/authentication/apikey/)                                           |
-| location | 需要查询地区的名称，支持文字、以英文逗号分隔的经度,纬度坐标（十进制，最多支持小数点后两位）、LocationID或Adcode（仅限中国城市）。例如 location=北京 或 location=116.41,39.92 |
-| city     | 城市名称                                                                                                            |
+![screenshot_kindle](screenshot/screenshot_kindle.jpg)
 
 ## 使用方法
 
@@ -35,6 +25,8 @@
 然后将项目打包，将打包后的文件夹拷贝到 [weather](packages/kindle-server/weather) 目录下。
 
 最后将 `kindle-server` 部署到你的服务器上。
+
+在`/kindle-server/index.js`中的`api`地址需要更新成自己的`url`。
 
 更新 `kindle-bash` 中 `start.sh` 中的 url 信息
 
